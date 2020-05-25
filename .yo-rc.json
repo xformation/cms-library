@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.synectiks.library"
+    },
+    "jhipsterVersion": "6.7.1",
+    "applicationType": "microservice",
+    "baseName": "library",
+    "packageName": "com.synectiks.library",
+    "packageFolder": "com/synectiks/library",
+    "serverPort": "9098",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YzFiMjNhODMwODQzNmQzMDY5N2U3ODcwOTk4OWE2MzUzYWI5MGNjM2I1OTZjZjQ2ZjU2ODc4ZTJjMzkwMzA2Yzk0MjkwNWE2MWYwYWRkNzVjNmVhNmRjNWVjMGM4MWJmYzA4MTQ2MTA4YTAyYWVkNWM1Y2NmZDkwZWRiNjMyNmM=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1590387938495,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
