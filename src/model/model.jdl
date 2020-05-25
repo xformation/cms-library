@@ -1,0 +1,26 @@
+entity Book{
+	issueDate LocalDate
+	dueDate LocalDate
+	noOfCopiesAvailable Integer
+	status String
+	receivedDate LocalDate
+	studentId Long
+}
+
+entity Library{
+    bookTitle String 
+    author String 
+    noOfCopies Long 
+    bookNo Long 
+    additionalInfo String
+    uniqueNo Long
+	batchId Long
+	subject Long
+}
+
+relationship ManyToOne {
+	Book{library} to Library
+}
+
+dto * with mapstruct
+service all with serviceImpl
