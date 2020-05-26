@@ -1,6 +1,7 @@
 package com.synectiks.library.aop.logging;
 
-import io.github.jhipster.config.JHipsterConstants;
+
+import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -11,9 +12,8 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
-import org.springframework.core.env.Profiles;
 
-import java.util.Arrays;
+import io.github.jhipster.config.JHipsterConstants;
 
 /**
  * Aspect for logging execution of service and repository Spring components.
@@ -54,12 +54,12 @@ public class LoggingAspect {
     /**
      * Advice that logs methods throwing exceptions.
      *
-     * @param joinPoint join point for advice.
-     * @param e exception.
+     * @param joinPoint join point for advice
+     * @param e exception
      */
     @AfterThrowing(pointcut = "applicationPackagePointcut() && springBeanPointcut()", throwing = "e")
     public void logAfterThrowing(JoinPoint joinPoint, Throwable e) {
-        if (env.acceptsProfiles(Profiles.of(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT))) {
+        if (env.acceptsProfiles(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT)) {
             log.error("Exception in {}.{}() with cause = \'{}\' and exception = \'{}\'", joinPoint.getSignature().getDeclaringTypeName(),
                 joinPoint.getSignature().getName(), e.getCause() != null? e.getCause() : "NULL", e.getMessage(), e);
 
@@ -72,9 +72,9 @@ public class LoggingAspect {
     /**
      * Advice that logs when a method is entered and exited.
      *
-     * @param joinPoint join point for advice.
-     * @return result.
-     * @throws Throwable throws {@link IllegalArgumentException}.
+     * @param joinPoint join point for advice
+     * @return result
+     * @throws Throwable throws IllegalArgumentException
      */
     @Around("applicationPackagePointcut() && springBeanPointcut()")
     public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
