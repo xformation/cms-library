@@ -1,0 +1,52 @@
+{
+    "name": "Library",
+    "fields": [
+        {
+            "fieldName": "clNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bookTitle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "author",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "noOfCopies",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "bookNo",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "additionalInfo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "uniqueNo",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "departmentId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "branchId",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200528153140",
+    "entityTableName": "library",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "library",
+    "applications": "*",
+    "microserviceName": "library"
+}

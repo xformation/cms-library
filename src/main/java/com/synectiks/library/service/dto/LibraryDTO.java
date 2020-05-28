@@ -1,14 +1,15 @@
 package com.synectiks.library.service.dto;
-
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * A DTO for the {@link com.synectiks.library.domain.Library} entity.
+ * A DTO for the Library entity.
  */
 public class LibraryDTO implements Serializable {
 
     private Long id;
+
+    private String clNo;
 
     private String bookTitle;
 
@@ -22,9 +23,9 @@ public class LibraryDTO implements Serializable {
 
     private Long uniqueNo;
 
-    private Long batchId;
+    private Long departmentId;
 
-    private Long subject;
+    private Long branchId;
 
 
     public Long getId() {
@@ -33,6 +34,14 @@ public class LibraryDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getClNo() {
+        return clNo;
+    }
+
+    public void setClNo(String clNo) {
+        this.clNo = clNo;
     }
 
     public String getBookTitle() {
@@ -83,20 +92,20 @@ public class LibraryDTO implements Serializable {
         this.uniqueNo = uniqueNo;
     }
 
-    public Long getBatchId() {
-        return batchId;
+    public Long getDepartmentId() {
+        return departmentId;
     }
 
-    public void setBatchId(Long batchId) {
-        this.batchId = batchId;
+    public void setDepartmentId(Long departmentId) {
+        this.departmentId = departmentId;
     }
 
-    public Long getSubject() {
-        return subject;
+    public Long getBranchId() {
+        return branchId;
     }
 
-    public void setSubject(Long subject) {
-        this.subject = subject;
+    public void setBranchId(Long branchId) {
+        this.branchId = branchId;
     }
 
     @Override
@@ -124,14 +133,15 @@ public class LibraryDTO implements Serializable {
     public String toString() {
         return "LibraryDTO{" +
             "id=" + getId() +
+            ", clNo='" + getClNo() + "'" +
             ", bookTitle='" + getBookTitle() + "'" +
             ", author='" + getAuthor() + "'" +
             ", noOfCopies=" + getNoOfCopies() +
             ", bookNo=" + getBookNo() +
             ", additionalInfo='" + getAdditionalInfo() + "'" +
             ", uniqueNo=" + getUniqueNo() +
-            ", batchId=" + getBatchId() +
-            ", subject=" + getSubject() +
+            ", departmentId=" + getDepartmentId() +
+            ", branchId=" + getBranchId() +
             "}";
     }
 }

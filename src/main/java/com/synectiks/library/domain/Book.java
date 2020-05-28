@@ -1,11 +1,13 @@
 package com.synectiks.library.domain;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * A Book.
@@ -15,7 +17,7 @@ import java.time.LocalDate;
 public class Book implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
     @SequenceGenerator(name = "sequenceGenerator")
@@ -38,6 +40,15 @@ public class Book implements Serializable {
 
     @Column(name = "student_id")
     private Long studentId;
+
+    @Column(name = "batch_id")
+    private Long batchId;
+
+    @Column(name = "department_id")
+    private Long departmentId;
+
+    @Column(name = "branch_id")
+    private Long branchId;
 
     @ManyToOne
     @JsonIgnoreProperties("books")
@@ -130,6 +141,45 @@ public class Book implements Serializable {
         this.studentId = studentId;
     }
 
+    public Long getBatchId() {
+        return batchId;
+    }
+
+    public Book batchId(Long batchId) {
+        this.batchId = batchId;
+        return this;
+    }
+
+    public void setBatchId(Long batchId) {
+        this.batchId = batchId;
+    }
+
+    public Long getDepartmentId() {
+        return departmentId;
+    }
+
+    public Book departmentId(Long departmentId) {
+        this.departmentId = departmentId;
+        return this;
+    }
+
+    public void setDepartmentId(Long departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public Long getBranchId() {
+        return branchId;
+    }
+
+    public Book branchId(Long branchId) {
+        this.branchId = branchId;
+        return this;
+    }
+
+    public void setBranchId(Long branchId) {
+        this.branchId = branchId;
+    }
+
     public Library getLibrary() {
         return library;
     }
@@ -149,15 +199,19 @@ public class Book implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Book)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        return id != null && id.equals(((Book) o).id);
+        Book book = (Book) o;
+        if (book.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), book.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
     @Override
@@ -170,6 +224,9 @@ public class Book implements Serializable {
             ", status='" + getStatus() + "'" +
             ", receivedDate='" + getReceivedDate() + "'" +
             ", studentId=" + getStudentId() +
+            ", batchId=" + getBatchId() +
+            ", departmentId=" + getDepartmentId() +
+            ", branchId=" + getBranchId() +
             "}";
     }
 }

@@ -1,10 +1,8 @@
 package com.synectiks.library.web.rest;
-
 import com.synectiks.library.service.LibraryService;
 import com.synectiks.library.web.rest.errors.BadRequestAlertException;
-import com.synectiks.library.service.dto.LibraryDTO;
-
 import com.synectiks.library.web.rest.util.HeaderUtil;
+import com.synectiks.library.service.dto.LibraryDTO;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,11 +11,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+
 import java.util.List;
 import java.util.Optional;
 
 /**
- * REST controller for managing {@link com.synectiks.library.domain.Library}.
+ * REST controller for managing Library.
  */
 @RestController
 @RequestMapping("/api")
@@ -27,8 +26,6 @@ public class LibraryResource {
 
     private static final String ENTITY_NAME = "libraryLibrary";
 
-    private String applicationName;
-
     private final LibraryService libraryService;
 
     public LibraryResource(LibraryService libraryService) {
@@ -36,11 +33,11 @@ public class LibraryResource {
     }
 
     /**
-     * {@code POST  /libraries} : Create a new library.
+     * POST  /libraries : Create a new library.
      *
-     * @param libraryDTO the libraryDTO to create.
-     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new libraryDTO, or with status {@code 400 (Bad Request)} if the library has already an ID.
-     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     * @param libraryDTO the libraryDTO to create
+     * @return the ResponseEntity with status 201 (Created) and with body the new libraryDTO, or with status 400 (Bad Request) if the library has already an ID
+     * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/libraries")
     public ResponseEntity<LibraryDTO> createLibrary(@RequestBody LibraryDTO libraryDTO) throws URISyntaxException {
@@ -50,18 +47,18 @@ public class LibraryResource {
         }
         LibraryDTO result = libraryService.save(libraryDTO);
         return ResponseEntity.created(new URI("/api/libraries/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
     /**
-     * {@code PUT  /libraries} : Updates an existing library.
+     * PUT  /libraries : Updates an existing library.
      *
-     * @param libraryDTO the libraryDTO to update.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated libraryDTO,
-     * or with status {@code 400 (Bad Request)} if the libraryDTO is not valid,
-     * or with status {@code 500 (Internal Server Error)} if the libraryDTO couldn't be updated.
-     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     * @param libraryDTO the libraryDTO to update
+     * @return the ResponseEntity with status 200 (OK) and with body the updated libraryDTO,
+     * or with status 400 (Bad Request) if the libraryDTO is not valid,
+     * or with status 500 (Internal Server Error) if the libraryDTO couldn't be updated
+     * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/libraries")
     public ResponseEntity<LibraryDTO> updateLibrary(@RequestBody LibraryDTO libraryDTO) throws URISyntaxException {
@@ -71,14 +68,14 @@ public class LibraryResource {
         }
         LibraryDTO result = libraryService.save(libraryDTO);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, libraryDTO.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, libraryDTO.getId().toString()))
             .body(result);
     }
 
     /**
-     * {@code GET  /libraries} : get all the libraries.
+     * GET  /libraries : get all the libraries.
      *
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of libraries in body.
+     * @return the ResponseEntity with status 200 (OK) and the list of libraries in body
      */
     @GetMapping("/libraries")
     public List<LibraryDTO> getAllLibraries() {
@@ -87,10 +84,10 @@ public class LibraryResource {
     }
 
     /**
-     * {@code GET  /libraries/:id} : get the "id" library.
+     * GET  /libraries/:id : get the "id" library.
      *
-     * @param id the id of the libraryDTO to retrieve.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the libraryDTO, or with status {@code 404 (Not Found)}.
+     * @param id the id of the libraryDTO to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the libraryDTO, or with status 404 (Not Found)
      */
     @GetMapping("/libraries/{id}")
     public ResponseEntity<LibraryDTO> getLibrary(@PathVariable Long id) {
@@ -100,15 +97,15 @@ public class LibraryResource {
     }
 
     /**
-     * {@code DELETE  /libraries/:id} : delete the "id" library.
+     * DELETE  /libraries/:id : delete the "id" library.
      *
-     * @param id the id of the libraryDTO to delete.
-     * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
+     * @param id the id of the libraryDTO to delete
+     * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/libraries/{id}")
     public ResponseEntity<Void> deleteLibrary(@PathVariable Long id) {
         log.debug("REST request to delete Library : {}", id);
         libraryService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
 }

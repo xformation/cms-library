@@ -1,9 +1,11 @@
 package com.synectiks.library.domain;
 
 
+
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * A Library.
@@ -13,11 +15,14 @@ import java.io.Serializable;
 public class Library implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
+
+    @Column(name = "cl_no")
+    private String clNo;
 
     @Column(name = "book_title")
     private String bookTitle;
@@ -37,11 +42,11 @@ public class Library implements Serializable {
     @Column(name = "unique_no")
     private Long uniqueNo;
 
-    @Column(name = "batch_id")
-    private Long batchId;
+    @Column(name = "department_id")
+    private Long departmentId;
 
-    @Column(name = "subject")
-    private Long subject;
+    @Column(name = "branch_id")
+    private Long branchId;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -50,6 +55,19 @@ public class Library implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getClNo() {
+        return clNo;
+    }
+
+    public Library clNo(String clNo) {
+        this.clNo = clNo;
+        return this;
+    }
+
+    public void setClNo(String clNo) {
+        this.clNo = clNo;
     }
 
     public String getBookTitle() {
@@ -130,30 +148,30 @@ public class Library implements Serializable {
         this.uniqueNo = uniqueNo;
     }
 
-    public Long getBatchId() {
-        return batchId;
+    public Long getDepartmentId() {
+        return departmentId;
     }
 
-    public Library batchId(Long batchId) {
-        this.batchId = batchId;
+    public Library departmentId(Long departmentId) {
+        this.departmentId = departmentId;
         return this;
     }
 
-    public void setBatchId(Long batchId) {
-        this.batchId = batchId;
+    public void setDepartmentId(Long departmentId) {
+        this.departmentId = departmentId;
     }
 
-    public Long getSubject() {
-        return subject;
+    public Long getBranchId() {
+        return branchId;
     }
 
-    public Library subject(Long subject) {
-        this.subject = subject;
+    public Library branchId(Long branchId) {
+        this.branchId = branchId;
         return this;
     }
 
-    public void setSubject(Long subject) {
-        this.subject = subject;
+    public void setBranchId(Long branchId) {
+        this.branchId = branchId;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -162,29 +180,34 @@ public class Library implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Library)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        return id != null && id.equals(((Library) o).id);
+        Library library = (Library) o;
+        if (library.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), library.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
     @Override
     public String toString() {
         return "Library{" +
             "id=" + getId() +
+            ", clNo='" + getClNo() + "'" +
             ", bookTitle='" + getBookTitle() + "'" +
             ", author='" + getAuthor() + "'" +
             ", noOfCopies=" + getNoOfCopies() +
             ", bookNo=" + getBookNo() +
             ", additionalInfo='" + getAdditionalInfo() + "'" +
             ", uniqueNo=" + getUniqueNo() +
-            ", batchId=" + getBatchId() +
-            ", subject=" + getSubject() +
+            ", departmentId=" + getDepartmentId() +
+            ", branchId=" + getBranchId() +
             "}";
     }
 }

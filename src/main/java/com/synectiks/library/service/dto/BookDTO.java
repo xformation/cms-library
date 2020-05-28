@@ -1,11 +1,10 @@
 package com.synectiks.library.service.dto;
-
 import java.time.LocalDate;
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * A DTO for the {@link com.synectiks.library.domain.Book} entity.
+ * A DTO for the Book entity.
  */
 public class BookDTO implements Serializable {
 
@@ -22,6 +21,12 @@ public class BookDTO implements Serializable {
     private LocalDate receivedDate;
 
     private Long studentId;
+
+    private Long batchId;
+
+    private Long departmentId;
+
+    private Long branchId;
 
 
     private Long libraryId;
@@ -82,6 +87,30 @@ public class BookDTO implements Serializable {
         this.studentId = studentId;
     }
 
+    public Long getBatchId() {
+        return batchId;
+    }
+
+    public void setBatchId(Long batchId) {
+        this.batchId = batchId;
+    }
+
+    public Long getDepartmentId() {
+        return departmentId;
+    }
+
+    public void setDepartmentId(Long departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public Long getBranchId() {
+        return branchId;
+    }
+
+    public void setBranchId(Long branchId) {
+        this.branchId = branchId;
+    }
+
     public Long getLibraryId() {
         return libraryId;
     }
@@ -121,7 +150,10 @@ public class BookDTO implements Serializable {
             ", status='" + getStatus() + "'" +
             ", receivedDate='" + getReceivedDate() + "'" +
             ", studentId=" + getStudentId() +
-            ", libraryId=" + getLibraryId() +
+            ", batchId=" + getBatchId() +
+            ", departmentId=" + getDepartmentId() +
+            ", branchId=" + getBranchId() +
+            ", library=" + getLibraryId() +
             "}";
     }
 }

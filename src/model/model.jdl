@@ -1,21 +1,25 @@
 entity Book{
-	issueDate LocalDate
-	dueDate LocalDate
-	noOfCopiesAvailable Integer
-	status String
-	receivedDate LocalDate
-	studentId Long
+   issueDate LocalDate
+   dueDate LocalDate
+   noOfCopiesAvailable Integer
+   status String
+   receivedDate LocalDate
+   studentId Long
+   batchId Long
+   departmentId Long
+   branchId Long
 }
 
 entity Library{
-    bookTitle String 
-    author String 
-    noOfCopies Long 
-    bookNo Long 
+    clNo String
+    bookTitle String
+    author String
+    noOfCopies Long
+    bookNo Long
     additionalInfo String
     uniqueNo Long
-	batchId Long
-	subject Long
+    departmentId Long
+    branchId Long
 }
 
 relationship ManyToOne {
