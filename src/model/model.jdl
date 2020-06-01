@@ -2,7 +2,7 @@ entity Book{
    issueDate LocalDate
    dueDate LocalDate
    noOfCopiesAvailable Integer
-   status String
+   bookStatus String
    receivedDate LocalDate
    studentId Long
    batchId Long

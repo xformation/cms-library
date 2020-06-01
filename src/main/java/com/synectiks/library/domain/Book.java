@@ -32,8 +32,8 @@ public class Book implements Serializable {
     @Column(name = "no_of_copies_available")
     private Integer noOfCopiesAvailable;
 
-    @Column(name = "status")
-    private String status;
+    @Column(name = "book_status")
+    private String bookStatus;
 
     @Column(name = "received_date")
     private LocalDate receivedDate;
@@ -102,17 +102,17 @@ public class Book implements Serializable {
         this.noOfCopiesAvailable = noOfCopiesAvailable;
     }
 
-    public String getStatus() {
-        return status;
+    public String getBookStatus() {
+        return bookStatus;
     }
 
-    public Book status(String status) {
-        this.status = status;
+    public Book bookStatus(String bookStatus) {
+        this.bookStatus = bookStatus;
         return this;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setBookStatus(String bookStatus) {
+        this.bookStatus = bookStatus;
     }
 
     public LocalDate getReceivedDate() {
@@ -221,7 +221,7 @@ public class Book implements Serializable {
             ", issueDate='" + getIssueDate() + "'" +
             ", dueDate='" + getDueDate() + "'" +
             ", noOfCopiesAvailable=" + getNoOfCopiesAvailable() +
-            ", status='" + getStatus() + "'" +
+            ", bookStatus='" + getBookStatus() + "'" +
             ", receivedDate='" + getReceivedDate() + "'" +
             ", studentId=" + getStudentId() +
             ", batchId=" + getBatchId() +

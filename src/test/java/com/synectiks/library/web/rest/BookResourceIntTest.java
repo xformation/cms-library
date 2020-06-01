@@ -54,8 +54,8 @@ public class BookResourceIntTest {
     private static final Integer DEFAULT_NO_OF_COPIES_AVAILABLE = 1;
     private static final Integer UPDATED_NO_OF_COPIES_AVAILABLE = 2;
 
-    private static final String DEFAULT_STATUS = "AAAAAAAAAA";
-    private static final String UPDATED_STATUS = "BBBBBBBBBB";
+    private static final String DEFAULT_BOOK_STATUS = "AAAAAAAAAA";
+    private static final String UPDATED_BOOK_STATUS = "BBBBBBBBBB";
 
     private static final LocalDate DEFAULT_RECEIVED_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_RECEIVED_DATE = LocalDate.now(ZoneId.systemDefault());
@@ -123,7 +123,7 @@ public class BookResourceIntTest {
             .issueDate(DEFAULT_ISSUE_DATE)
             .dueDate(DEFAULT_DUE_DATE)
             .noOfCopiesAvailable(DEFAULT_NO_OF_COPIES_AVAILABLE)
-            .status(DEFAULT_STATUS)
+            .bookStatus(DEFAULT_BOOK_STATUS)
             .receivedDate(DEFAULT_RECEIVED_DATE)
             .studentId(DEFAULT_STUDENT_ID)
             .batchId(DEFAULT_BATCH_ID)
@@ -156,7 +156,7 @@ public class BookResourceIntTest {
         assertThat(testBook.getIssueDate()).isEqualTo(DEFAULT_ISSUE_DATE);
         assertThat(testBook.getDueDate()).isEqualTo(DEFAULT_DUE_DATE);
         assertThat(testBook.getNoOfCopiesAvailable()).isEqualTo(DEFAULT_NO_OF_COPIES_AVAILABLE);
-        assertThat(testBook.getStatus()).isEqualTo(DEFAULT_STATUS);
+        assertThat(testBook.getBookStatus()).isEqualTo(DEFAULT_BOOK_STATUS);
         assertThat(testBook.getReceivedDate()).isEqualTo(DEFAULT_RECEIVED_DATE);
         assertThat(testBook.getStudentId()).isEqualTo(DEFAULT_STUDENT_ID);
         assertThat(testBook.getBatchId()).isEqualTo(DEFAULT_BATCH_ID);
@@ -198,7 +198,7 @@ public class BookResourceIntTest {
             .andExpect(jsonPath("$.[*].issueDate").value(hasItem(DEFAULT_ISSUE_DATE.toString())))
             .andExpect(jsonPath("$.[*].dueDate").value(hasItem(DEFAULT_DUE_DATE.toString())))
             .andExpect(jsonPath("$.[*].noOfCopiesAvailable").value(hasItem(DEFAULT_NO_OF_COPIES_AVAILABLE)))
-            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
+            .andExpect(jsonPath("$.[*].bookStatus").value(hasItem(DEFAULT_BOOK_STATUS.toString())))
             .andExpect(jsonPath("$.[*].receivedDate").value(hasItem(DEFAULT_RECEIVED_DATE.toString())))
             .andExpect(jsonPath("$.[*].studentId").value(hasItem(DEFAULT_STUDENT_ID.intValue())))
             .andExpect(jsonPath("$.[*].batchId").value(hasItem(DEFAULT_BATCH_ID.intValue())))
@@ -220,7 +220,7 @@ public class BookResourceIntTest {
             .andExpect(jsonPath("$.issueDate").value(DEFAULT_ISSUE_DATE.toString()))
             .andExpect(jsonPath("$.dueDate").value(DEFAULT_DUE_DATE.toString()))
             .andExpect(jsonPath("$.noOfCopiesAvailable").value(DEFAULT_NO_OF_COPIES_AVAILABLE))
-            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()))
+            .andExpect(jsonPath("$.bookStatus").value(DEFAULT_BOOK_STATUS.toString()))
             .andExpect(jsonPath("$.receivedDate").value(DEFAULT_RECEIVED_DATE.toString()))
             .andExpect(jsonPath("$.studentId").value(DEFAULT_STUDENT_ID.intValue()))
             .andExpect(jsonPath("$.batchId").value(DEFAULT_BATCH_ID.intValue()))
@@ -252,7 +252,7 @@ public class BookResourceIntTest {
             .issueDate(UPDATED_ISSUE_DATE)
             .dueDate(UPDATED_DUE_DATE)
             .noOfCopiesAvailable(UPDATED_NO_OF_COPIES_AVAILABLE)
-            .status(UPDATED_STATUS)
+            .bookStatus(UPDATED_BOOK_STATUS)
             .receivedDate(UPDATED_RECEIVED_DATE)
             .studentId(UPDATED_STUDENT_ID)
             .batchId(UPDATED_BATCH_ID)
@@ -272,7 +272,7 @@ public class BookResourceIntTest {
         assertThat(testBook.getIssueDate()).isEqualTo(UPDATED_ISSUE_DATE);
         assertThat(testBook.getDueDate()).isEqualTo(UPDATED_DUE_DATE);
         assertThat(testBook.getNoOfCopiesAvailable()).isEqualTo(UPDATED_NO_OF_COPIES_AVAILABLE);
-        assertThat(testBook.getStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testBook.getBookStatus()).isEqualTo(UPDATED_BOOK_STATUS);
         assertThat(testBook.getReceivedDate()).isEqualTo(UPDATED_RECEIVED_DATE);
         assertThat(testBook.getStudentId()).isEqualTo(UPDATED_STUDENT_ID);
         assertThat(testBook.getBatchId()).isEqualTo(UPDATED_BATCH_ID);

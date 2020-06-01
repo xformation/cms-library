@@ -16,7 +16,7 @@ public class BookDTO implements Serializable {
 
     private Integer noOfCopiesAvailable;
 
-    private String status;
+    private String bookStatus;
 
     private LocalDate receivedDate;
 
@@ -63,12 +63,12 @@ public class BookDTO implements Serializable {
         this.noOfCopiesAvailable = noOfCopiesAvailable;
     }
 
-    public String getStatus() {
-        return status;
+    public String getBookStatus() {
+        return bookStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setBookStatus(String bookStatus) {
+        this.bookStatus = bookStatus;
     }
 
     public LocalDate getReceivedDate() {
@@ -147,7 +147,7 @@ public class BookDTO implements Serializable {
             ", issueDate='" + getIssueDate() + "'" +
             ", dueDate='" + getDueDate() + "'" +
             ", noOfCopiesAvailable=" + getNoOfCopiesAvailable() +
-            ", status='" + getStatus() + "'" +
+            ", bookStatus='" + getBookStatus() + "'" +
             ", receivedDate='" + getReceivedDate() + "'" +
             ", studentId=" + getStudentId() +
             ", batchId=" + getBatchId() +
