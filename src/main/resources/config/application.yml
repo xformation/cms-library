@@ -154,17 +154,18 @@ jhipster:
 application:
     feeSrvUrl: http://localhost:9095
     imagePath: webapp/static/images
-    influxDbUrl: http://100.81.5.25:8086
+    influxDbUrl: http://localhost:8086
     influxDb: cmsdb
     influxDbUsername: cms
     influxDbPassword: cms
     influxDbLogLevel: BASIC
-    secSrvUrl: http://100.81.5.25:8094
-    prefSrvUrl: http://100.81.5.25:9091
-    cmsBackEndUrl: http://100.81.5.25:8080
-    kafkaUrl: http://100.81.5.25:8190/kafka/send
-    indexEventFireUrl: http://100.81.5.25:8092/seach/fireEvent
+    secSrvUrl: http://localhost:8094
+    prefSrvUrl: http://localhost:9091
+    cmsBackEndUrl: http://localhost:8080
+    kafkaUrl: http://localhost:8190/kafka/send
+    indexEventFireUrl: http://localhost:8092/seach/fireEvent
     msAuthenticationUrl: https://login.microsoftonline.com/TENANT_ID/oauth2/v2.0/token
-    paymentResponseUrl: http://100.81.5.25:9091/api/cmspaymentresponse
-    paymentRedirectUrl: http://100.81.5.25:3000/plugins/ems-preference/page/home
-    transportSrvUrl: http://100.81.5.25:9098
+    paymentResponseUrl: http://localhost:9091/api/cmspaymentresponse
+    paymentRedirectUrl: http://localhost:3000/plugins/ems-preference/page/home
+    transportSrvUrl: http://localhost:9098
+    stdSrvUrl: http://localhost:9093
