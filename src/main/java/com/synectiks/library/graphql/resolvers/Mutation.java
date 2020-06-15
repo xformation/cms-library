@@ -8,6 +8,7 @@ import com.synectiks.library.config.ApplicationProperties;
 import com.synectiks.library.constant.CmsConstants;
 import com.synectiks.library.domain.Batch;
 import com.synectiks.library.domain.Department;
+import com.synectiks.library.domain.Student;
 import com.synectiks.library.domain.vo.CmsBookVo;
 import com.synectiks.library.domain.vo.CmsLibraryVo;
 import com.synectiks.library.filter.Book.BookListFilterInput;
@@ -68,6 +69,7 @@ public class Mutation implements GraphQLMutationResolver {
         List<CmsBookVo> list = this.bookfilterProcessor.searchBook(filter);
         List<CmsBookVo> ls = new ArrayList<>();
         String prefUrl = applicationProperties.getPrefSrvUrl();
+        String stUrl = applicationProperties.getStdSrvUrl();
         for(CmsBookVo book: list) {
             CmsBookVo vo = CommonUtil.createCopyProperties(book, CmsBookVo.class);
             vo.setStrIssueDate(DateFormatUtil.changeLocalDateFormat(book.getIssueDate(), CmsConstants.DATE_FORMAT_dd_MM_yyyy));
@@ -77,8 +79,11 @@ public class Mutation implements GraphQLMutationResolver {
             Department d = this.commonService.getObject(url, Department.class);
             url = prefUrl+"/api/batch-by-id/"+vo.getBatchId();
             Batch b = this.commonService.getObject(url,Batch.class);
+            url = stUrl+"/api/student-by-id/"+vo.getStudentId();
+            Student s = this.commonService.getObject(url,Student.class);
             vo.setBatch(b);
             vo.setDepartment(d);
+            vo.setStudent(s);
             vo.setIssueDate(null);
             vo.setDueDate(null);
             vo.setReceivedDate(null);
